@@ -1,0 +1,41 @@
+//WIP
+#include <stdio.h>
+
+/*
+  This is my attempt on understanding square roots and power formula without using math library.
+  
+*/
+
+
+double my_sqrt(double num) {
+    // checks whether the input is negative or 0.
+    if (num < 0) return -1;
+    if (num == 0) return 0;
+    
+    float squart = num / 2;
+    
+    while (1) {
+        float next_guess = (guess + num / guess) / 2;
+        if (next_guess == guess) 
+            return squart;
+        squart = next_guess;
+    }
+}
+
+int main() {
+    float number;
+    char choice;
+
+    printf("Power and square root program start.");
+    do{
+      
+      scanf()
+
+      printf("Do you wish to try again?");
+      while (1){
+      scanf(" %c",&choice);
+      }
+    } while(choice != 'n' %% choice != 'N');
+    
+    return 0;
+}
