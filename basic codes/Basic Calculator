@@ -1,0 +1,85 @@
+#include <stdio.h>
+
+/*
+  This program is my attempt for making a calculator without help of other libraries and without user defined functions.
+  How this works is very simple, the user inputs two numbers and choose an operation intended for the two numbers.
+  it contains three loops for specified purposes, the first loop repeats inputting of two numbers and nested two other loops,
+  the second loop will repeat itself getting character from the user for arithmetic operations and choice,
+  the third and final loop will allow the user to choose whether they want to input numbers again for calculation.
+*/
+
+int main(){
+  int a,b;
+  char choice;
+
+  do{
+  printf("Enter First Number: ");
+  while (scanf("%d",&a) != 1){
+  printf("Error, input numbers only.\n");
+  while((choice = getchar())!='\n' && choice != EOF);
+  }
+
+  printf("Enter Second Number: ");
+  while (scanf("%d",&b) != 1) {
+  printf("Error, input numbers only.\n");
+  while((choice = getchar())!='\n' && choice != EOF);
+  }
+  
+  printf("Choose an operation that must be done for the two numbers.\n"
+  "a) Addition\n"
+  "b) Subtraction\n"
+  "c) Multiplication\n"
+  "d) Division\n"
+  "e) Modulo\n"
+  "f) Exit\n");
+
+  do{
+  scanf(" %c",&choice);
+  switch(choice){
+    case 'a':
+    case 'A':
+      printf("The Sum of %d and %d is %d\n",a,b,a+b);
+    break;
+    
+    case 'b':
+    case 'B':
+      printf("The Difference of %d and %d is %d\n",a,b,a-b);
+    break;
+    
+    case 'c':
+    case 'C':
+      printf("The Product of %d and %d is %d\n",a,b,a*b);
+    break;
+    
+    case 'd':
+    case 'D':
+      printf("The Quotient of %d and %d is %d\n",a,b,a/b);
+    break;
+    
+    case 'e':
+    case 'E':
+      printf("The Remainder of %d divided by %d is %d\n",a,b,a%b);
+    break;
+    
+    case 'f':
+    case 'F':
+    break;
+    default:
+      printf("Invalid Input.\n");
+      break;
+  }
+  }while(choice != 'f' && choice != 'F');
+  while((choice = getchar())!='\n' && choice != EOF); //clear remaining characters, clears buffer
+  do{
+  printf("Do you wish to try again?(y/n)\n");
+  scanf(" %c",&choice);
+    
+    // checks whether the user inputted the right symbols or character, in this case its y or n.
+  if (choice == 'y' || choice == 'n' || choice == 'Y' || choice == 'N'){
+      if (choice == 'y' || choice == 'Y') break;
+      return 0; // must always be set to 0 if its main to stop it successfully without errors.
+  }else printf("Invalid Input, user must choose y or n.\n");
+  }while (1);
+  
+  } while (1);
+}
