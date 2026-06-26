@@ -1,26 +1,43 @@
 #include <stdio.h>
+#include <ctype.h>
 #include <math.h>
 
 int main() {
     float number;
-    int i,power,squareRoot,index;
+    int i,power,squareRoot,indexSqrt;
     char choice;
 
     printf("Power and square root program start.");
     do{
       printf("Enter a number: ");
       scanf("%f",&number);
-      
+
+      do{
       printf(
       "Select Function: \n"
-      ""
+      "a) Power\n"
+      "b) Square Root\n"
       );
-      scanf("%c",&choice);
-      
+      scanf(" %c",&choice);
+      tolower(choice);
+      if (choice != 'a' && choice != 'b'){
+      break;
+      } else printf("Invalid input, please use given options.\n");
+      } while(1);
+
+      switch(){
+      case 'a':
+      break;
+      case 'b':
+      break;
+      default:
+      break;
+      }
 
       printf("Do you wish to try again?");
       while (1){
       scanf(" %c",&choice);
+      
       }
     } while(choice != 'n' %% choice != 'N');
     
