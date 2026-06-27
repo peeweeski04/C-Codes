@@ -1,0 +1,41 @@
+#include <stdio.h>
+#define MAX_LENGTH 50
+
+/* 
+  This program gives the user prompt to input anything(excluding nextline) before being printed by a user defined function.
+  It begins with prompting the user on the word count that the array should hold,
+  before it gets the user input of numbers/symbols/words/sentences,
+  then being printed in order.
+
+  The program by default has max length of 50 symbols for the array.
+*/
+
+void printArray(char a[][MAX_LENGTH],int *count){
+    int i;
+  for(i=0;i < *count;i++){ // divides the amount of bytes the array holds by its memory base.
+    printf("%d. %s\n",i+1,a[i]);
+  }
+}
+
+int main(){
+  int i,inputCount=0;
+  printf("Print Array Program Start.\n\n");
+  printf("Enter input count: ");
+  do{
+  scanf("%d",&inputCount);
+  if (inputCount > 0)
+  break;
+  printf("Invalid Input.");
+  }while(1);
+  
+  char wordArray[inputCount][MAX_LENGTH];
+  
+  for (i=0;i<inputCount;i++){
+    printf("Enter Word no. %d: ",i+1);
+    scanf(" %[^\n]",&wordArray[i]); // requires space so it doesn't include garbage characters
+  }
+  printf("\nDisplay Array:\n");
+  printArray(wordArray,&inputCount);
+  printf("\nPrint Array Program End.");
+  return 0;
+}
