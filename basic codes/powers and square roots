@@ -2,44 +2,62 @@
 #include <ctype.h>
 #include <math.h>
 
+/*
+    This is a program that allows the user to input numbers for square roots and power of numbers,
+    it contains some basic input validation alongside maintaining the code's structure.
+    with the help of math.h and ctype.h library, the program's code is slightly shorter.
+*/
+
 int main() {
     float number;
-    int i,power,squareRoot,indexSqrt;
+    int i,power;
     char choice;
 
-    printf("Power and square root program start.");
+    printf("Power and square root program start.\n\n");
     do{
-      printf("Enter a number: ");
-      scanf("%f",&number);
+        printf("Enter a number: ");
+        scanf("%f",&number);
 
+    do{
+        printf(
+        "Select Function: \n"
+        "a) Power\n"
+        "b) Square Root\n"
+        );
+        scanf(" %c",&choice);
+        tolower(choice);
+
+        if (choice == 'a' || choice == 'b'){ // it must be either a or b, else it prints error and asks the user to try again.
+        break;
+        } else printf("Invalid input, please use given options.\n");
+
+        } while(1);
+        
+        switch(choice){
+        case 'a': // Power function
+        printf("Enter the nth power for the number: ");
+        scanf("%d",&power);
+        printf("%.2f to the power of %d is %.2f\n\n",number,power,pow(number,power));
+        break;
+        case 'b': // Square Root function
+        printf("The square root of %.2f is %.2f\n\n",number,sqrt(number));
+        break;
+          default:
+          break;
+          }
+
+      printf("Do you wish to try again?(y/n)\n");
       do{
-      printf(
-      "Select Function: \n"
-      "a) Power\n"
-      "b) Square Root\n"
-      );
       scanf(" %c",&choice);
       tolower(choice);
-      if (choice != 'a' && choice != 'b'){
-      break;
-      } else printf("Invalid input, please use given options.\n");
+
+      if (choice == 'y' || choice == 'n'){
+        break;
+      } else printf("Invalid Input.\n");
+
       } while(1);
 
-      switch(){
-      case 'a':
-      break;
-      case 'b':
-      break;
-      default:
-      break;
-      }
-
-      printf("Do you wish to try again?");
-      while (1){
-      scanf(" %c",&choice);
-      
-      }
-    } while(choice != 'n' %% choice != 'N');
+    } while(choice != 'n');
     
     return 0;
 }
