@@ -4,7 +4,7 @@
 /*
   fgets vs scanf, which to choose?
   fgets is the safest to use but requires better understanding on its arguments and purpose(also needs stdlib knowledge).
-  scanf is used when being taught on simple form. It also teaches the user on format specifiers.
+  scanf is used when being taught on simple form. It also teaches the user on format specifiers. But it doesn't take all user inputs not unless it gets simplified like fgets. 
 */
 
 struct student{
@@ -12,13 +12,24 @@ struct student{
     float initialgrade,midtermgrade,finalgrade;
 };
 
+int fgetsFiltered(char *container,size_t size) {
+    if (fgets(container,size,stdin) == NULL || container[0] == '\n' || )
+    return 1;
+    return 0;
+}
+
 int main(){
     char container[50];
     int studentCount;
 
+    do{
     printf("Enter Student Count: ");
-    while(fgets(container,sizeof(container),stdin) == NULL)
-    printf("Invalid Input.\n.");
+    if (fgetsFiltered(container,sizeof(container))){
+    printf("Invalid Input.\n");
+    } else break;
+    }while(1);
+    
+    
 
     
     
